@@ -33,6 +33,25 @@ function convertUserInput(userInput){
 ///rock=1, paper=2, scissors=3
 function checkWin(numericUserVal, computerInput){
 
+    if(numericUserVal==1 && computerInput==2){
+
+        console.log("the computer wins, paper beats rock");
+
+    }else if(numericUserVal==2 && computerInput==3){
+
+        console.log("the computer wins, scissors beats paper");
+
+    }else if(numericUserVal==3 && computerInput==1){
+
+        console.log("the computer wins, rock beats scissors");
+
+    }else if(numericUserVal==computerInput){
+
+        console.log("It is a draw");
+    }else{
+
+        console.log("user wins, the computer chose unwisely");
+    }
 
 
 
@@ -42,6 +61,7 @@ function playGame(userInput, computerInput){
 //converts user string value into a number
 let numericUserVal = convertUserInput(userInput);
 
+checkWin(numericUserVal, computerInput);
 
 
 
@@ -49,5 +69,5 @@ let numericUserVal = convertUserInput(userInput);
 
 
 playGame(userInput, computerInput);
-console.log(computerInput);
+console.log(userInput);
 console.log(computerInput);
