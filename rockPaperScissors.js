@@ -1,9 +1,36 @@
 
 //prompts user to type rock, paper or scissor. non-case sensitive
-let userInput = prompt("Rock, Paper, or Scissors? Your Choice").toLowerCase();
+//let userInput = prompt("Rock, Paper, or Scissors? Your Choice").toLowerCase();
 
 //stores the computer's random input of 1, 2, or 3.
 let computerInput = Math.floor(Math.random()*3)+1;
+
+
+
+const buttons = document.querySelectorAll('button');
+
+buttons.forEach((button) => {
+
+    button.addEventListener('click', (e) =>{
+
+        const userInput = e.target.textContent.toLowerCase();
+        console.log(userInput);
+        convertUserInput(userInput);
+        
+
+    });
+
+});
+
+
+
+function getUserInput(userInput){
+
+
+
+
+}
+
 
 
 function convertUserInput(userInput){
@@ -29,6 +56,8 @@ function convertUserInput(userInput){
 
     }
 }
+
+
 
 ///rock=1, paper=2, scissors=3
 function checkWin(numericUserVal, computerInput){

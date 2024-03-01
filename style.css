@@ -1,0 +1,53 @@
+*{
+
+box-sizing: border-box;
+
+}
+
+
+.footer{
+display:flex;
+justify-content:space-between;
+height:100px
+
+}
+
+
+.outPutContent{
+
+display: flex;
+justify-content: center;
+align-items: center;
+height:250px;
+margin:50px;
+}
+
+.userOutput,
+.computerOutput{
+
+text-align: center;
+background-color: aqua;
+border: 2px solid black;
+height:100px;
+width:100px;
+
+
+}
+
+.user-content{
+margin: 40px;
+display: flex;
+justify-content: space-around;
+
+
+
+}
+
+.user-content button{
+
+    width: 150px;
+    height: 50px;
+
+
+
+}
