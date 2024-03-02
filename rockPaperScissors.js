@@ -3,19 +3,24 @@
 //let userInput = prompt("Rock, Paper, or Scissors? Your Choice").toLowerCase();
 
 //stores the computer's random input of 1, 2, or 3.
-let computerInput = Math.floor(Math.random()*3)+1;
-
+let computerInput = 0;
+let userInput = "";
 
 
 const buttons = document.querySelectorAll('button');
 
+
+/*when the button is clicked, get the text from the button, get computer input, send everything to 
+calculated for the score.  The game moves at the speed of the user, when the user clicks the game moves*/
 buttons.forEach((button) => {
 
     button.addEventListener('click', (e) =>{
 
-        const userInput = e.target.textContent.toLowerCase();
+        userInput = e.target.textContent.toLowerCase();
+        computerInput = Math.floor(Math.random()*3)+1;
+
         console.log(userInput);
-        convertUserInput(userInput);
+        
         
 
     });
@@ -24,31 +29,22 @@ buttons.forEach((button) => {
 
 
 
-function getUserInput(userInput){
 
+function convertComputerInput(){
 
+    switch(computerInput){
 
+        case 1:
+        computerInput = "rock";
+        return computerInput;
 
-}
+        case 2:
+        computerInput = "paper";
+        return computerInput;
 
-
-
-function convertUserInput(userInput){
-
-    switch(userInput){
-
-        case "rock":
-        userInput = 1
-        return userInput;
-
-        case "paper":
-
-        userInput = 2
-        return userInput;
-
-        case "scissors":
-        userInput = 3
-        return userInput;
+        case 3:
+        computerInput = "scissors";
+        return computerInput;
 
         default:
 
@@ -60,37 +56,42 @@ function convertUserInput(userInput){
 
 
 ///rock=1, paper=2, scissors=3
-function checkWin(numericUserVal, computerInput){
+function checkWin(userInput, computerInput){
 
-    if(numericUserVal==1 && computerInput==2){
+    if(userInput===computerInput){
 
-        console.log("the computer wins, paper beats rock");
+        console.log("It is a draw")
 
-    }else if(numericUserVal==2 && computerInput==3){
+    }else if(userInput==="rock" && computerInput==="scissors"){
 
-        console.log("the computer wins, scissors beats paper");
+        console.log("The user wins, rock beats scissors!");
 
-    }else if(numericUserVal==3 && computerInput==1){
+    }else if(userInput==="scissors" && computerInput==="paper"){
 
-        console.log("the computer wins, rock beats scissors");
+        console.log("The user wins, scissors beats paper!");
 
-    }else if(numericUserVal==computerInput){
+    }else if(userInput==="paper" && computerInput==="rock"){
 
-        console.log("It is a draw");
-    }else{
+    }else if(computerInput==="rock" && userInput==="scissors"){
 
-        console.log("user wins, the computer chose unwisely");
+        console.log("The computer wins, rock beats scissors!");
+
+    }else if(computerInput==="paper" && userInput==="rock"){
+
+        console.log("The computer wins, paper beats rock!")
+
+    }else if(computerInput==="scissors" && userInput==="paper"){
+
+
+        console.log("The computer wins, scissors beats paper");
     }
-
-
 
 }
 
 function playGame(userInput, computerInput){
-//converts user string value into a number
-let numericUserVal = convertUserInput(userInput);
 
-checkWin(numericUserVal, computerInput);
+
+checkWin(userInput, computerInput);
 
 
 
