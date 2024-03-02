@@ -17,9 +17,10 @@ buttons.forEach((button) => {
     button.addEventListener('click', (e) =>{
 
         userInput = e.target.textContent.toLowerCase();
-        computerInput = Math.floor(Math.random()*3)+1;
-
+        computerInput = getComputerInput(computerInput);
         console.log(userInput);
+        console.log(computerInput);
+        checkWin(userInput,computerInput);
         
         
 
@@ -27,10 +28,19 @@ buttons.forEach((button) => {
 
 });
 
+function getComputerInput(computerInput){
+
+    computerInput = Math.floor(Math.random()*3)+1;
+    computerInput = convertComputerInput(computerInput);
+
+    return computerInput ;
+
+}
 
 
 
-function convertComputerInput(){
+
+function convertComputerInput(computerInput){
 
     switch(computerInput){
 
