@@ -6,6 +6,7 @@
 let computerInput = 0;
 let userInput = "";
 
+const totalScore = {computerScore: 0, userScore: 0};
 
 const buttons = document.querySelectorAll('button');
 
@@ -78,35 +79,51 @@ function checkWin(userInput, computerInput){
     }else if(userInput==="rock" && computerInput==="scissors"){
 
         outPutContent.innerText = "The user wins, rock beats scissors!";
+        totalScore.userScore+=1;
       
     }else if(userInput==="scissors" && computerInput==="paper"){
 
-       
         outPutContent.innerText= "The user wins, scissors beats paper!";
+        totalScore.userScore+=1;
 
     }else if(userInput==="paper" && computerInput==="rock"){
         
         outPutContent.innerText = "The user wins, paper beats rock!";
+        totalScore.userScore+=1;
 
     }else if(computerInput==="rock" && userInput==="scissors"){
 
         outPutContent.innerText = "The computer wins, rock beats scissors!";
-
+        totalScore.computerScore+=1;
     }else if(computerInput==="paper" && userInput==="rock"){
 
         outPutContent.innerText = "The computer wins, paper beats rock!";
+        totalScore.computerScore+=1;
 
     }else if(computerInput==="scissors" && userInput==="paper"){
 
-
         outPutContent.innerText = "The computer wins, scissors beats paper";
+        totalScore.computerScore+=1;
     }
+    updateScore(totalScore.computerScore, totalScore.userScore);
 
 }
 
+function updateScore(computerScore, userScore){
+
+    let outPlayerScore = document.querySelector(".pScore");
+    let outComputerScore = document.querySelector('.cScore');
+
+    outComputerScore.innerText = computerScore;
+    outPlayerScore.innerText = userScore;
 
 
 
+
+
+
+
+}
 
 
 
