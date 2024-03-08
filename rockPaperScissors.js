@@ -28,6 +28,7 @@ buttons.forEach((button) => {
 
 });
 
+//randomly selects computer input, calls convertComputerInput
 function getComputerInput(computerInput){
 
     computerInput = Math.floor(Math.random()*3)+1;
@@ -39,7 +40,7 @@ function getComputerInput(computerInput){
 
 
 
-
+//converts number of computer input to a string
 function convertComputerInput(computerInput){
 
     switch(computerInput){
@@ -68,35 +69,46 @@ function convertComputerInput(computerInput){
 ///rock=1, paper=2, scissors=3
 function checkWin(userInput, computerInput){
 
+    let outPutContent = document.querySelector(".outPutContent");
+
     if(userInput===computerInput){
 
-        console.log("It is a draw")
+        outPutContent.innerText = "It's a draw!";
 
     }else if(userInput==="rock" && computerInput==="scissors"){
 
-        console.log("The user wins, rock beats scissors!");
-
+        outPutContent.innerText = "The user wins, rock beats scissors!";
+      
     }else if(userInput==="scissors" && computerInput==="paper"){
 
-        console.log("The user wins, scissors beats paper!");
+       
+        outPutContent.innerText= "The user wins, scissors beats paper!";
 
     }else if(userInput==="paper" && computerInput==="rock"){
+        
+        outPutContent.innerText = "The user wins, paper beats rock!";
 
     }else if(computerInput==="rock" && userInput==="scissors"){
 
-        console.log("The computer wins, rock beats scissors!");
+        outPutContent.innerText = "The computer wins, rock beats scissors!";
 
     }else if(computerInput==="paper" && userInput==="rock"){
 
-        console.log("The computer wins, paper beats rock!")
+        outPutContent.innerText = "The computer wins, paper beats rock!";
 
     }else if(computerInput==="scissors" && userInput==="paper"){
 
 
-        console.log("The computer wins, scissors beats paper");
+        outPutContent.innerText = "The computer wins, scissors beats paper";
     }
 
 }
+
+
+
+
+
+
 
 function playGame(userInput, computerInput){
 
